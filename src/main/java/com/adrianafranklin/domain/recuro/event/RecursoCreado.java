@@ -1,9 +1,9 @@
-package com.adrianafranklin.domain.recur.event;
+package com.adrianafranklin.domain.recuro.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import com.adrianafranklin.domain.centroprestamo.valueobject.CodigoBarra;
-import com.adrianafranklin.domain.recur.valueobjectrecurso.DataRecurso;
-import com.adrianafranklin.domain.recur.valueobjectrecurso.Inventario;
+import com.adrianafranklin.domain.recuro.valueobjectrecurso.DataRecurso;
+import com.adrianafranklin.domain.recuro.valueobjectrecurso.Inventario;
 
 public class RecursoCreado extends DomainEvent {
     private final DataRecurso dataRecurso;

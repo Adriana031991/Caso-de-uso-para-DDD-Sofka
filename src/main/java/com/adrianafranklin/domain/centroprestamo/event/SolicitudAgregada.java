@@ -3,10 +3,6 @@ package com.adrianafranklin.domain.centroprestamo.event;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.adrianafranklin.domain.centroprestamo.valueobject.SolicitudId;
 import com.adrianafranklin.domain.centroprestamo.valueobject.TiempoPrestamo;
-import com.adrianafranklin.domain.recur.Recurso;
-import com.adrianafranklin.domain.recur.valueobjectrecurso.RecursoId;
-
-import java.util.Map;
 
 public class SolicitudAgregada extends DomainEvent {
     private final SolicitudId entityId;

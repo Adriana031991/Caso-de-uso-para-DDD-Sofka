@@ -1,4 +1,4 @@
-package com.adrianafranklin.domain.recur.valueobjectrecurso;
+package com.adrianafranklin.domain.recuro.valueobjectrecurso;
 
 import co.com.sofka.domain.generic.Identity;
 

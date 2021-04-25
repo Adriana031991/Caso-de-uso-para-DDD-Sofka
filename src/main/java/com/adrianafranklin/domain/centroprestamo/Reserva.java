@@ -2,9 +2,6 @@ package com.adrianafranklin.domain.centroprestamo;
 
 import co.com.sofka.domain.generic.Entity;
 import com.adrianafranklin.domain.centroprestamo.valueobject.*;
-import com.adrianafranklin.domain.recur.valueobjectrecurso.RecursoId;
-
-import java.util.List;
 
 public class Reserva extends Entity<ReservaId> {
 

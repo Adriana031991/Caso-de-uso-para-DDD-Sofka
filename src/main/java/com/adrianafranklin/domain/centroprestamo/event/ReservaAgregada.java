@@ -2,9 +2,6 @@ package com.adrianafranklin.domain.centroprestamo.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import com.adrianafranklin.domain.centroprestamo.valueobject.*;
-import com.adrianafranklin.domain.recur.valueobjectrecurso.RecursoId;
-
-import java.util.List;
 
 public class ReservaAgregada extends DomainEvent {
     private final ReservaId reservaId;

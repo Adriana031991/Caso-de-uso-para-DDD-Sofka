@@ -23,11 +23,13 @@ public class Sancion implements ValueObject<String> {
             throw new IllegalArgumentException(d.getMessage());
         }
         formato = generateFormat();
+
         descripcionSancion = description();
     }
     private String generateFormat(){
         return fechaSancion.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
+
     public String description(){
         return this.descripcionSancion;
     }
