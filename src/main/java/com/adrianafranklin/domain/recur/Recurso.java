@@ -3,13 +3,16 @@ package com.adrianafranklin.domain.recur;
 import co.com.sofka.domain.generic.AggregateEvent;
 import com.adrianafranklin.domain.centroprestamo.valueobject.CodigoBarra;
 import com.adrianafranklin.domain.recur.event.RecursoCreado;
+import com.adrianafranklin.domain.recur.valueobjectrecurso.CategoriaId;
 import com.adrianafranklin.domain.recur.valueobjectrecurso.DataRecurso;
 import com.adrianafranklin.domain.recur.valueobjectrecurso.Inventario;
 import com.adrianafranklin.domain.recur.valueobjectrecurso.RecursoId;
 
+import java.util.Map;
+
 public class Recurso extends AggregateEvent<RecursoId> {
 
-    protected Categoria categoria;
+    protected Map<CategoriaId, Categoria> categoria;
     protected Boolean recursoExistente;
     protected DataRecurso dataRecurso;
     protected Inventario inventario;

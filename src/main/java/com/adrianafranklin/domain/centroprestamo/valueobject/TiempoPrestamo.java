@@ -17,7 +17,7 @@ public class TiempoPrestamo implements ValueObject<String> {
         try {
             fechaYHoraPrestamo = LocalDateTime.of(year, month, day, HH, mm, ss);
             if(fechaYHoraPrestamo.isBefore(LocalDateTime.now())){
-                throw new IllegalArgumentException("La fecha no puede ser antes de hoy: "+ fechaYHoraPrestamo);
+                throw new IllegalArgumentException("La fecha y hora no puede ser antes de hoy: "+ fechaYHoraPrestamo);
             }
         } catch (DateTimeException e){
             throw new IllegalArgumentException(e.getMessage());

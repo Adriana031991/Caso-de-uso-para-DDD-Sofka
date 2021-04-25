@@ -9,36 +9,32 @@ import java.util.List;
 public class Reserva extends Entity<ReservaId> {
 
     protected SolicitudId solicitudId;
-    protected List<RecursoId> recursoId;
     protected TiempoPrestamo tiempoPrestamo;
     protected CancelacionReserva cancelacionReserva;
     protected Boolean reservado;
     protected Prioridad prioridad; // enum
-    //no olvidar usar un contador
+    //TODO--no olvidar usar un contador
 
-
-    private Reserva(ReservaId entityId) {
-        super(entityId);
+    private Reserva(ReservaId reservaId) {
+        super(reservaId);
     }
 
-    protected Reserva(ReservaId entityId, SolicitudId solicitudId, List<RecursoId> recursoId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
-        super(entityId);
+    public Reserva(ReservaId reservaId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
+        super(reservaId);
         this.solicitudId = solicitudId;
-        this.recursoId = recursoId;
         this.tiempoPrestamo = tiempoPrestamo;
         this.cancelacionReserva = cancelacionReserva;
         this.reservado = reservado;
         this.prioridad = prioridad;
     }
 
-    public static Reserva from(ReservaId entityId, SolicitudId solicitudId, List<RecursoId> recursoId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
+    public static Reserva from(ReservaId entityId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
         Reserva reserva = new Reserva(entityId);
-        reserva.solicitudId=solicitudId;
-        reserva.prioridad=prioridad;
-        reserva.recursoId= recursoId;
-        reserva.tiempoPrestamo= tiempoPrestamo;
-        reserva.reservado= reservado;
-        reserva.cancelacionReserva=cancelacionReserva;
+        reserva.solicitudId = solicitudId;
+        reserva.prioridad = prioridad;
+        reserva.tiempoPrestamo = tiempoPrestamo;
+        reserva.reservado = reservado;
+        reserva.cancelacionReserva = cancelacionReserva;
         return reserva;
     }
 
@@ -75,20 +71,11 @@ public class Reserva extends Entity<ReservaId> {
         this.reservado = reservado;
     }
 
-    //TODO---VALIDAR ESTE ENUM y lista de recurso
     public Prioridad getPrioridad() {
         return prioridad;
     }
 
     public void updatePrioridad(Prioridad prioridad) {
         this.prioridad = prioridad;
-    }
-
-    public List<RecursoId> getRecursoId() {
-        return recursoId;
-    }
-
-    public void setRecursoId(List<RecursoId> recursoId) {
-        this.recursoId = recursoId;
     }
 }

@@ -9,26 +9,28 @@ public class Solicitante extends Entity<SolicitanteId> {
     protected Nombre nombre;
     protected Sancion sancion;
     protected Bloqueado bloqueado;
+    protected EstadoSolicitante estadoSolicitante;
 
-
-    private Solicitante(SolicitanteId entityId) {
-        super(entityId);
+    private Solicitante(SolicitanteId solicitanteId) {
+        super(solicitanteId);
     }
 
-    protected Solicitante(SolicitanteId entityId, Identificacion identificacion, Nombre nombre, Sancion sancion, Bloqueado bloqueado) {
-        super(entityId);
+    public Solicitante(SolicitanteId solicitanteId, Identificacion identificacion, Nombre nombre, Sancion sancion, Bloqueado bloqueado, EstadoSolicitante estadoSolicitante) {
+        super(solicitanteId);
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.sancion = sancion;
         this.bloqueado = bloqueado;
+        this.estadoSolicitante = estadoSolicitante;
     }
 
-    public static Solicitante from(SolicitanteId entityId, Identificacion identificacion, Nombre nombre, Sancion sancion, Bloqueado bloqueado) {
-        var solicitante = new Solicitante(entityId);
+    public static Solicitante from(SolicitanteId solicitanteId, Identificacion identificacion, Nombre nombre, Sancion sancion, Bloqueado bloqueado, EstadoSolicitante estadoSolicitante) {
+        var solicitante = new Solicitante(solicitanteId);
         solicitante.nombre= nombre;
         solicitante.identificacion=identificacion;
         solicitante.bloqueado= bloqueado;
         solicitante.sancion=sancion;
+        solicitante.estadoSolicitante= estadoSolicitante;
         return solicitante;
     }
 
@@ -48,6 +50,10 @@ public class Solicitante extends Entity<SolicitanteId> {
         return bloqueado.value();
     }
 
+    public EstadoSolicitante estadoSolicitante(){
+        return estadoSolicitante;
+    }
+
     public void updateNombre(Nombre nombre){
         this.nombre = nombre;
     }
@@ -62,5 +68,9 @@ public class Solicitante extends Entity<SolicitanteId> {
 
     public void updateBloqueado(Bloqueado bloqueado){
         this.bloqueado= bloqueado;
+    }
+
+    public void updateEstadoSolicitante(EstadoSolicitante estadoSolicitante){
+        this.estadoSolicitante= estadoSolicitante;
     }
 }

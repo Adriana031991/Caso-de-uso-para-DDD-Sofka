@@ -12,20 +12,18 @@ public class Administrador extends Entity <AdministradorId>{
     protected Nombre nombre;
     protected EstadoAdministrador estadoAdministrador;
 
-
-    protected Administrador(AdministradorId entityId, Identificacion identificacion,Nombre nombre,EstadoAdministrador estadoAdministrador ) {
-        super(entityId);
-        this.identificacion= identificacion;
-        this.nombre = nombre;
-        this.estadoAdministrador = estadoAdministrador;
-
-    }
-
     private Administrador(AdministradorId entityId){
         super(entityId);
     }
 
-    public static Administrador from(AdministradorId entityId, Identificacion identificacion,Nombre nombre,EstadoAdministrador estadoAdministrador){
+    public Administrador(AdministradorId entityId, Identificacion identificacion, Nombre nombre, EstadoAdministrador estadoAdministrador) {
+        super(entityId);
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.estadoAdministrador = estadoAdministrador;
+    }
+
+    public static Administrador from(AdministradorId entityId, Identificacion identificacion, Nombre nombre, EstadoAdministrador estadoAdministrador){
         var administrador = new Administrador(entityId);
         administrador.nombre=nombre;
         administrador.identificacion=identificacion;
@@ -40,7 +38,7 @@ public class Administrador extends Entity <AdministradorId>{
     public String identificacion(){
         return identificacion.value();
     }
-//TODO--ARREGLAR EL LLAMADO DEL ENUM
+
     public EstadoAdministrador estadoAdministrador(){
         return estadoAdministrador;
     }
@@ -52,7 +50,7 @@ public class Administrador extends Entity <AdministradorId>{
         this.identificacion = identificacion;
     }
 
-    public void updateEstadoAdministrador(){
+    public void updateEstadoAdministrador(EstadoAdministrador estadoAdministrador){
         this.estadoAdministrador=estadoAdministrador;
     }
 
