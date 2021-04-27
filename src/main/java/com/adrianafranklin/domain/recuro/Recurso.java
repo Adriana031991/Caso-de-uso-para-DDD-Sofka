@@ -22,9 +22,9 @@ public class Recurso extends AggregateEvent<RecursoId> {
     protected Inventario inventario;
     protected CodigoBarra codigoBarra;
 
-    public Recurso(RecursoId entityId, DataRecurso dataRecurso, Boolean recursoExistente, CodigoBarra codigoBarra, Inventario inventario) {
-        super(entityId);
-        appendChange(new RecursoCreado(dataRecurso,recursoExistente,codigoBarra,inventario)).apply();
+    public Recurso(RecursoId recursoId, DataRecurso dataRecurso, Boolean recursoExistente, CodigoBarra codigoBarra, Inventario inventario) {
+        super(recursoId);
+        appendChange(new RecursoCreado(recursoId,dataRecurso,recursoExistente,codigoBarra,inventario)).apply();
     }
 
     private Recurso(RecursoId entityId) {

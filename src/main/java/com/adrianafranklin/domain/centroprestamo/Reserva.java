@@ -3,6 +3,7 @@ package com.adrianafranklin.domain.centroprestamo;
 import co.com.sofka.domain.generic.Entity;
 import com.adrianafranklin.domain.centroprestamo.valueobject.*;
 
+
 public class Reserva extends Entity<ReservaId> {
 
     protected SolicitudId solicitudId;
@@ -42,7 +43,6 @@ public class Reserva extends Entity<ReservaId> {
     public void updateSolicitudId(SolicitudId solicitudId) {
         this.solicitudId = solicitudId;
     }
-
 
     public String TiempoPrestamo() {
         return tiempoPrestamo.value();

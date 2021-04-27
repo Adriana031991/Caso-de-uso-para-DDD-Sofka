@@ -10,7 +10,7 @@ public class CategoriaId extends Identity {
     public CategoriaId() {
     }
 
-    public static CategoriaId of(String uuid) {
+    public static CategoriaId of() {
         return new CategoriaId();
     }
 }

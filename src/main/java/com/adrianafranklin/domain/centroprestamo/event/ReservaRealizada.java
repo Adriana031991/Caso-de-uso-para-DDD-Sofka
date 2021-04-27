@@ -3,7 +3,7 @@ package com.adrianafranklin.domain.centroprestamo.event;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.adrianafranklin.domain.centroprestamo.valueobject.*;
 
-public class ReservaAgregada extends DomainEvent {
+public class ReservaRealizada extends DomainEvent {
     private final ReservaId reservaId;
     private final SolicitudId solicitudId;
     private final TiempoPrestamo tiempoPrestamo;
@@ -11,7 +11,7 @@ public class ReservaAgregada extends DomainEvent {
     private final Boolean reservado;
     private final Prioridad prioridad;
 
-    public ReservaAgregada(ReservaId reservaId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
+    public ReservaRealizada(ReservaId reservaId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad) {
         super("prestamo.reserva.reservaagregada");
 
         this.reservaId = reservaId;

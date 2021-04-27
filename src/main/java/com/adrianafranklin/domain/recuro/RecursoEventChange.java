@@ -16,7 +16,15 @@ public class RecursoEventChange extends EventChange {
         apply((CategoriaAgregada event)->{
             recurso.categorias.put(
                     event.getCategoriaId(),
-                    new Categoria(event.getCategoriaId(), event.getNombre(), event.getUsoFueraDeLasInstalaciones()));
+                    new Categoria(
+                            event.getCategoriaId(),
+                            event.getNombre(),
+                            event.getUsoFueraDeLasInstalaciones()));
         });
     }
 }
+/*
+            if (recurso.recursoExistente.equals(Boolean.TRUE)){
+                throw new IllegalArgumentException("el recurso exite");
+            }
+*/

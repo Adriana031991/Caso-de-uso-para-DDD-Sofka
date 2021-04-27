@@ -4,14 +4,15 @@ import co.com.sofka.domain.generic.Identity;
 
 public class CentroPrestamoId extends Identity {
 
-    private CentroPrestamoId(String uuid) {
+    public CentroPrestamoId(String uuid) {
         super(uuid);
     }
 
     public CentroPrestamoId() {
     }
 
-    public CentroPrestamoId of(String uuid) {
+
+    public static CentroPrestamoId of(String uuid) {
         return  new CentroPrestamoId(uuid);
     }
 

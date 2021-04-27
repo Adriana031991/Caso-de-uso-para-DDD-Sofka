@@ -37,8 +37,8 @@ public class CentroPrestamo extends AggregateEvent<CentroPrestamoId> {
         appendChange(new AdministradorAgregado(administradorId, nombre, identificacion)).apply();
     }
 
-    public void agregarSolicitud(SolicitudId entityId, String descripcionSolicitud, Boolean aprobado, TiempoPrestamo tiempoPrestamo){
-        appendChange(new SolicitudAgregada(entityId,descripcionSolicitud,aprobado,tiempoPrestamo)).apply();
+    public void agregarSolicitud(SolicitudId entityId, String descripcionSolicitud, Boolean aprobado, TiempoPrestamo tiempoPrestamo, SolicitanteId solicitanteId){
+        appendChange(new SolicitudAgregada(entityId,descripcionSolicitud,aprobado,tiempoPrestamo, solicitanteId)).apply();
     }
 
     public void agregarSolicitante(Identificacion identificacion, Nombre nombre, Sancion sancion, Bloqueado bloqueado){
@@ -46,8 +46,9 @@ public class CentroPrestamo extends AggregateEvent<CentroPrestamoId> {
         appendChange(new SolicitanteAgregado(solicitanteId,identificacion,nombre,sancion,bloqueado)).apply();
     }
 
-    public void agregarReserva(ReservaId reservaId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad){
-        appendChange(new ReservaAgregada(reservaId,solicitudId,tiempoPrestamo,cancelacionReserva,reservado,prioridad)).apply();
+    public void realizarReserva(ReservaId reservaId, SolicitudId solicitudId, TiempoPrestamo tiempoPrestamo, CancelacionReserva cancelacionReserva, Boolean reservado, Prioridad prioridad){
+        appendChange(new ReservaRealizada(reservaId,solicitudId,tiempoPrestamo,cancelacionReserva,reservado,prioridad)).apply();
     }
+
 
 }

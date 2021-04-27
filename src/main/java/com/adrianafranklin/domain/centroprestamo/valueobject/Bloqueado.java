@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Bloqueado implements ValueObject<String> {
 
@@ -12,7 +13,7 @@ public class Bloqueado implements ValueObject<String> {
     private final String descripcion;
     private final String formato;
 
-    public Bloqueado(int dd, int mm, int yyyy) {
+    public Bloqueado(int dd, int mm, int yyyy, String descripcion) {
         try {
             fechaBloqueo = LocalDate.of(dd, mm, yyyy);
             if (fechaBloqueo.isBefore(LocalDate.now())){
@@ -22,7 +23,7 @@ public class Bloqueado implements ValueObject<String> {
             throw new IllegalArgumentException(d.getMessage());
         }
         formato = generateFormat();
-        descripcion = descriptionBloqueado();
+        this.descripcion= descripcion;
 
     }
 
@@ -30,14 +31,22 @@ public class Bloqueado implements ValueObject<String> {
         return fechaBloqueo.format(DateTimeFormatter.ofPattern("dd-mm-yyyy"));
     }
 
-    public String descriptionBloqueado(){
-        return this.descripcion;
-    }
-
-
 
     @Override
     public String value() {
         return formato+descripcion;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bloqueado bloqueado = (Bloqueado) o;
+        return fechaBloqueo.equals(bloqueado.fechaBloqueo) && descripcion.equals(bloqueado.descripcion) && formato.equals(bloqueado.formato);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fechaBloqueo, descripcion, formato);
     }
 }
